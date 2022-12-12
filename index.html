@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width,initial-scale=1.0">
+    <link rel="stylesheet" href="./whackamole.css">
+    <title>Whack a Mole!!</title>
+  </head>
+  <body>
+    <div class="container">
+      <div class="heading">
+        <p>Whack a Mole!!!</p>
+      </div>
+      <div class="score">Puntos: <span>0</span></div>
+      <div class="contdeholes">
+        <div class="hole hole1"></div>
+        <div class="hole hole2"></div>
+        <div class="hole hole3"></div>
+        <div class="hole hole4"></div>
+        <div class="hole hole5"></div>
+        <div class="hole hole6"></div>
+        <div class="hole hole7"></div>
+        <div class="hole hole8"></div>
+        <div class="hole hole9"></div>
+      </div>
+      <div class="buttons">
+        <button class="play">JUGAR</button>
+        <button class="stop">ALTO</button>
+      </div>
+      <div class="cursor">
+        <img src="fotos/martillo.png"/>
+      </div>
+    </div>
+    <script>
+      const score = document.querySelector(".score span");
+      const holes = document.querySelectorAll(".hole");
+      const playbtn = document.querySelector(".buttons .play");
+      const stopbtn = document.querySelector(".buttons .stop");
+      const cursor = document.querySelector(".cursor img");
+
+      window.addEventListener("mousemove", (e) => {
+        cursor.style.top = e.pageY + "px";
+        cursor.style.left = e.pageX + "px";
+
+        window.addEventListener("click", () => {
+          cursor.style.animation = "hit 0.1s ease";
+          setTimeout(()=>{
+            cursor.style.removeProperty("animation");
+          },100)
+        })
+      });
+      playbtn.addEventListener("click",()=>{
+        playbtn.style.display = "none";
+        stopbtn.style.display = "inline-block";
+
+        let hole;
+        let points = 0;
+
+        const startGame = setInterval(()=>{
+          let arrayNo = Math.floor(Math.random()*9);
+          hole = holes[arrayNo];
+          console.log(hole); 
+        }, 700);
+
+        stopbtn.addEventListener("click",()=>{
+          clearInterval(startGame);
+        })
+      });
+    </script>
+  </body>
+</html>
+
+//23:51
