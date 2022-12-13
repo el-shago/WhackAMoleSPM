@@ -6,19 +6,19 @@
   cursor: none ;
 }
 body{
-  background-color: rgb(0, 159, 251);
+  background-color: rgb(0, 67, 149);
   color: #fff;
   display: flex;
   justify-content: center;
 }
 .heading{
-  font-size: 2em;
+  font-size: 3.5em;
   margin: 1em 0;
   text-align: center;
 }
 .score{
-  font-size: 1.3em;
-  margin: 1em 0;
+  font-size: 2em;
+  margin: 0.5em 0;
   text-align: center;
 }
 .contdeholes{
@@ -35,7 +35,12 @@ justify-items: center;
   border-radius: 50%;
   background-color: black;
   overflow: hidden;
-}
+  transition: box-shadow 0.15s
+    color 0.15s;            
+  }
+  .hole:hover{
+    box-shadow: 5px 5px 10px rgba(0, 0, 0, 0.357);
+    }
 
 .mole{
   position:absolute;
@@ -62,9 +67,19 @@ justify-items: center;
 .buttons button{
   padding: 15px 45px;
   background-color: inherit;
-  border: 1px solid white;
-  border-radius: 3px;
+  border: 2px solid white;
+  border-radius: 10px;
   outline: none;
+  font-weight: bold;
+  color: white;
+  transition: background-color 0.3s,
+      color 0.3s;
+  
+}
+.buttons button:hover{
+  background-color:rgb(252, 252, 252);
+    color: rgb(0, 67, 149);;
+    
 }
 button.stop{
   display: none;  
@@ -83,4 +98,20 @@ button.stop{
   to{
     transform: rotate(-30deg);
   }
+}
+
+.timer{
+  font-size: 3em;
+  border: none;
+  margin: 0.5em 0;
+  padding: 2em 8em;
+  border-radius: 45px;
+  border-style: solid;
+  border-color: white;
+  vertical-align: top;
+  border-width: 2px;
+  padding-left: 125px;
+  padding-right: 18px;
+  padding-top: 20px;
+  padding-bottom: 20px;
 }

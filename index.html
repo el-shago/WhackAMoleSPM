@@ -12,6 +12,11 @@
         <p>Whack a Mole!!!</p>
       </div>
       <div class="score">Puntos: <span>0</span></div>
+      <div class="timer">
+        <span class="timer__part timer__part--minutes">00</span>
+        <span class="timer__part">:</span>
+        <span class="timer__part timer__part--seconds">00</span>
+      </div>
       <div class="contdeholes">
         <div class="hole hole1"></div>
         <div class="hole hole2"></div>
@@ -27,6 +32,7 @@
         <button class="play">JUGAR</button>
         <button class="stop">ALTO</button>
       </div>
+      
       <div class="cursor">
         <img src="fotos/martillo.png"/>
       </div>
@@ -67,7 +73,7 @@
           setTimeout(()=> {
             hole.removeChild(image);
           },600);
-        }, 700);
+        }, 800);
 
         window.addEventListener("click", (e) =>{
           if(e.target === hole)score.innerText = ++points;
