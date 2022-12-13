@@ -59,15 +59,27 @@
         const startGame = setInterval(()=>{
           let arrayNo = Math.floor(Math.random()*9);
           hole = holes[arrayNo];
-          console.log(hole); 
+          
+          let image = document.createElement("img");
+          image.setAttribute("src", "fotos/mole.png");
+          image.setAttribute("class", "mole");
+          hole.appendChild(image);
+          setTimeout(()=> {
+            hole.removeChild(image);
+          },600);
         }, 700);
+
+        window.addEventListener("click", (e) =>{
+          if(e.target === hole)score.innerText = ++points;
+        });
 
         stopbtn.addEventListener("click",()=>{
           clearInterval(startGame);
+          stopbtn.style.display = "none";
+          playbtn.style.display = "inline-block";
         })
       });
     </script>
   </body>
 </html>
 
-//23:51
