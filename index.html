@@ -13,9 +13,7 @@
       </div>
       <div class="score">Puntos: <span>0</span></div>
       <div class="timer">
-        <span class="timer__part timer__part--minutes">00</span>
-        <span class="timer__part">:</span>
-        <span class="timer__part timer__part--seconds">00</span>
+        <span id="seconds">0</span>
       </div>
       <div class="contdeholes">
         <div class="hole hole1"></div>
@@ -37,55 +35,7 @@
         <img src="fotos/martillo.png"/>
       </div>
     </div>
-    <script>
-      const score = document.querySelector(".score span");
-      const holes = document.querySelectorAll(".hole");
-      const playbtn = document.querySelector(".buttons .play");
-      const stopbtn = document.querySelector(".buttons .stop");
-      const cursor = document.querySelector(".cursor img");
-
-      window.addEventListener("mousemove", (e) => {
-        cursor.style.top = e.pageY + "px";
-        cursor.style.left = e.pageX + "px";
-
-        window.addEventListener("click", () => {
-          cursor.style.animation = "hit 0.1s ease";
-          setTimeout(()=>{
-            cursor.style.removeProperty("animation");
-          },100)
-        })
-      });
-      playbtn.addEventListener("click",()=>{
-        playbtn.style.display = "none";
-        stopbtn.style.display = "inline-block";
-
-        let hole;
-        let points = 0;
-
-        const startGame = setInterval(()=>{
-          let arrayNo = Math.floor(Math.random()*9);
-          hole = holes[arrayNo];
-          
-          let image = document.createElement("img");
-          image.setAttribute("src", "fotos/mole.png");
-          image.setAttribute("class", "mole");
-          hole.appendChild(image);
-          setTimeout(()=> {
-            hole.removeChild(image);
-          },600);
-        }, 800);
-
-        window.addEventListener("click", (e) =>{
-          if(e.target === hole)score.innerText = ++points;
-        });
-
-        stopbtn.addEventListener("click",()=>{
-          clearInterval(startGame);
-          stopbtn.style.display = "none";
-          playbtn.style.display = "inline-block";
-        })
-      });
-    </script>
+    <script src="index.js"></script>
   </body>
 </html>
 
