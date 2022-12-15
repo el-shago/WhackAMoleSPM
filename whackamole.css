@@ -39,7 +39,7 @@ justify-items: center;
     color 0.15s;            
   }
   .hole:hover{
-    box-shadow: 5px 5px 10px rgba(0, 0, 0, 0.357);
+    box-shadow: 10px 10px 10px rgba(0, 0, 0, 0.357);
     }
 
 .mole{
@@ -110,8 +110,13 @@ button.stop{
   border-color: white;
   vertical-align: top;
   border-width: 2px;
-  padding-left: 185px;
+  padding-left: 175px;
   padding-right: 18px;
   padding-top: 20px;
   padding-bottom: 20px;
+  
+}
+
+.seconds{
+  display: center;
 }

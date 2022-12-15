@@ -3,6 +3,8 @@
       const playbtn = document.querySelector(".buttons .play");
       const stopbtn = document.querySelector(".buttons .stop");
       const cursor = document.querySelector(".cursor img");
+      let golpesillo = new Audio("audio/golpesillo.mp3");
+      let victory = new Audio("audio/ggez.mp3");
 
       window.addEventListener("mousemove", (e) => {
         cursor.style.top = e.pageY + "px";
@@ -37,7 +39,10 @@
         }, 800);
 
         window.addEventListener("click", (e) =>{
-          if(e.target === hole)score.innerText = ++points;
+          if(e.target === hole){
+            score.innerText = ++points;
+            golpesillo.play()
+          }
         });
 
         stopbtn.addEventListener("click",()=>{
@@ -63,6 +68,7 @@
           clearInterval(startGame);
           stopbtn.style.display = "none";
           playbtn.style.display = "inline-block";
+          victory.play()
         }
         if(timeLeft == 10){
           
