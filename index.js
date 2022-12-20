@@ -35,8 +35,8 @@
           hole.appendChild(image);
           setTimeout(()=> {
             hole.removeChild(image);
-          },600);
-        }, 800);
+          },900);
+        }, 1000);
 
         window.addEventListener("click", (e) =>{
           if(e.target === hole){
@@ -66,12 +66,26 @@
         }
         if(timeLeft == 0){
           clearInterval(startGame);
+          clearInterval(disifil);
           stopbtn.style.display = "none";
           playbtn.style.display = "inline-block";
           victory.play()
         }
-        if(timeLeft == 10){
+        /*while(timeLeft == 10 && timeLeft>0){
+          clearInterval(startGame);
+          const disifil = setInterval(()=>{
+            let arrayNo = Math.floor(Math.random()*9);
+            hole = holes[arrayNo];
+  
+            let image = document.createElement("img");
+            image.setAttribute("src", "fotos/mole.png");
+            image.setAttribute("class", "mole");
+            hole.appendChild(image);
+            setTimeout(()=> {
+              hole.removeChild(image);
+            },400);
+          }, 600);
           
-        }
+        }*/
       }
       });

@@ -21,6 +21,12 @@ body{
   margin: 0.5em 0;
   text-align: center;
 }
+.highscore{
+  font-size: 2em;
+  margin: 1.5em 0;
+  text-align: center;
+  position: relative;
+}
 .contdeholes{
 display: grid;
 grid-template-columns: repeat(3,1fr);
