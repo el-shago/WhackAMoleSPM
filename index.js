@@ -66,12 +66,11 @@
         }
         if(timeLeft == 0){
           clearInterval(startGame);
-          clearInterval(disifil);
           stopbtn.style.display = "none";
           playbtn.style.display = "inline-block";
           victory.play()
         }
-        /*while(timeLeft == 10 && timeLeft>0){
+        /*while(timeLeft > 11){
           clearInterval(startGame);
           const disifil = setInterval(()=>{
             let arrayNo = Math.floor(Math.random()*9);
