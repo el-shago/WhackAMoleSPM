@@ -21,22 +21,29 @@
       playbtn.addEventListener("click",()=>{
         playbtn.style.display = "none";
         stopbtn.style.display = "inline-block";
+        juegar(900,1000)
 
         let hole;
         let points = 0;
+        
 
-        const startGame = setInterval(()=>{
-          let arrayNo = Math.floor(Math.random()*9);
-          hole = holes[arrayNo];
+        function juegar(tiempo1,tiempo2){
+          let cabeza = true
+          while (cabeza == true){
+          const startGame = setInterval(()=>{
+            let arrayNo = Math.floor(Math.random()*9);
+            hole = holes[arrayNo];
 
-          let image = document.createElement("img");
-          image.setAttribute("src", "fotos/mole.png");
-          image.setAttribute("class", "mole");
-          hole.appendChild(image);
-          setTimeout(()=> {
-            hole.removeChild(image);
-          },900);
-        }, 1000);
+            let image = document.createElement("img");
+            image.setAttribute("src", "fotos/mole.png");
+            image.setAttribute("class", "mole");
+            hole.appendChild(image);
+            setTimeout(()=> {
+              hole.removeChild(image);
+            },tiempo1);/*900*/
+          }, tiempo2);/*1000*/
+        }
+        }
 
         window.addEventListener("click", (e) =>{
           if(e.target === hole){
@@ -46,7 +53,7 @@
         });
 
         stopbtn.addEventListener("click",()=>{
-          clearInterval(startGame);
+          cabeza = false
           stopbtn.style.display = "none";
           playbtn.style.display = "inline-block";
           timeLeft = 0;
@@ -65,26 +72,11 @@
           timeLeft--;
         }
         if(timeLeft == 0){
-          clearInterval(startGame);
-          stopbtn.style.display = "none";
-          playbtn.style.display = "inline-block";
+          cabeza = false
           victory.play()
         }
-        /*while(timeLeft > 11){
-          clearInterval(startGame);
-          const disifil = setInterval(()=>{
-            let arrayNo = Math.floor(Math.random()*9);
-            hole = holes[arrayNo];
-  
-            let image = document.createElement("img");
-            image.setAttribute("src", "fotos/mole.png");
-            image.setAttribute("class", "mole");
-            hole.appendChild(image);
-            setTimeout(()=> {
-              hole.removeChild(image);
-            },400);
-          }, 600);
-          
-        }*/
+        while(timeLeft < 11){
+          juegar(400,600)
+        }
       }
       });
