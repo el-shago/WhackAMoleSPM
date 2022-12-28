@@ -5,6 +5,7 @@
       const cursor = document.querySelector(".cursor img");
       let golpesillo = new Audio("audio/golpesillo.mp3");
       let victory = new Audio("audio/ggez.mp3");
+    
 
       window.addEventListener("mousemove", (e) => {
         cursor.style.top = e.pageY + "px";
@@ -43,6 +44,12 @@
             },tiempo1);/*900*/
           }, tiempo2);/*1000*/
         }
+        if (cabeza==false){
+          clearInterval(startGame);
+          stopbtn.style.display = "none";
+          playbtn.style.display = "inline-block";
+          timeLeft = 0;
+        }
         }
 
         window.addEventListener("click", (e) =>{
@@ -54,9 +61,6 @@
 
         stopbtn.addEventListener("click",()=>{
           cabeza = false
-          stopbtn.style.display = "none";
-          playbtn.style.display = "inline-block";
-          timeLeft = 0;
         })
 
       var timeLeft = 30;
@@ -76,7 +80,8 @@
           victory.play()
         }
         while(timeLeft < 11){
-          juegar(400,600)
+          clearInterval(startGame);
+          juegar(400,600);
         }
       }
       });
